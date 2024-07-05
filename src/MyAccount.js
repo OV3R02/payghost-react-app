@@ -11,7 +11,7 @@ function MyAccount() {
     useEffect(() => {
         const tk = sessionStorage.getItem("token");
         const id = sessionStorage.getItem("id");
-        const url = 'http://localhost:8080/payghost/api/accounts' + id;
+        const url = 'http://localhost:8080/payghost/api/accounts/' + id;
         fetch(url,
             {
                 method: 'GET',
