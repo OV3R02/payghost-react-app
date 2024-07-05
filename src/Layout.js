@@ -8,7 +8,7 @@ const Layout = () => {
     const [isAuthenticated, setIsAuthenticated] = auth; // null represents the initial loading state
     const [loggeduser, setLoggeduser] = user; // null represents the initial loading state
     useEffect(() => {
-        console.log(loggeduser);
+        console.log({loggeduser});
     }, [loggeduser]);
     return (
         <>
@@ -28,8 +28,6 @@ const Layout = () => {
                             <li class="nav-item">
                                 <Link className="nav-link" aria-current="page" to="/Dashboard">Area Privata</Link>
                             </li>
-
-
                         </ul>
                         <span >utente: {isAuthenticated ? `${loggeduser}` : `---`}</span>
                     </div>

@@ -8,7 +8,7 @@ function Logout() {
   const { auth, user } = useContext(AuthContext);
   const [isAuthenticated, setIsAuthenticated] = auth; // null represents the initial loading state
   const [loggeduser, setLoggeduser] = user; // null represents the initial loading state
-
+  
   const quit = () => {
     alert("Logged OUT!!");
     sessionStorage.removeItem("id");

@@ -3,11 +3,11 @@ function Home() {
       return (
 
 <main>
-        <div className="fullwidth">
+        <div className="container-fluid">
             <h1>homepage</h1>
             <h3>sottotiolo</h3>
         </div>
-        <div className="boxed">
+        <div className="container">
             <h2>Tsp 24 </h2>
             <h3>Software house Innovation Technology</h3>
             <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quam dolores nulla sit non omnis aut quas

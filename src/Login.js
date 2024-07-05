@@ -43,7 +43,7 @@ function Login() {
                     setLoggeduser(account.upn);
 
                     navigate('/dashboard');
-                    console.log(account)
+                    console.log({account})
                 }
 
             })
@@ -53,8 +53,7 @@ function Login() {
                 sessionStorage.setItem("email", "qwe@qwe.it");
                 sessionStorage.setItem("token", "eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIyIiwidXBuIjoicXdlQHF3ZS5pdCIsImFkbWluIjp0cnVlLCJpYXQiOjE1MTYyMzkwMjJ9.elXn4LwThgODEZQSJZl21F4ndnyUtBf2NBDH67pRVIkkJk1dYIuvitQUiszLDg49SppTGbiVlNb1MMH2Zj1O8f-ztsyUWQlZou94lFnEELvsHCtmhaCOhg_oEueaAhzQKfjGZv05pDhAqeLpy6IbJGdd18jgILQzHDaJ3X2bv4WQzV4ykZrwrSvCK4U9t2YafsOX10HrPteCWAOiufHLOYnxndsKHsJURsUqFyCih3CVgv10W8kUYs_XHnVIamAubahITW9_8eBF1NRTxnfokvOUp7FkVfQpdMscg7C9sDOswzp9OO-R3n7DFYck9GOVznOuEQflXujr5rSXfBQgEQ");
                 setIsAuthenticated(true);
-                setLoggeduser("qwe@qwe.it");
-
+                setLoggeduser("catch error qwe@qwe.it");
                 navigate('/dashboard');
             }
             );
