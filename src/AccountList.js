@@ -16,12 +16,10 @@ function Accountlist() {
                 setAccounts(json);
             })
             .catch((error) => {
-                const json = [{ id: 22, fname: "qwe", lname: "wer" }, { id: 33, fname: "asd", lname: "asd" }]
                 console.log(error);
-                setAccounts(json);
             }
             );
-    }, [accounts]);
+    }, accounts);
     return (
         <>
             <select className="form-select">

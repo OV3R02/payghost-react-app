@@ -4,6 +4,7 @@ import { AuthContext } from './AuthContext';
 
 
 import Accountlist from './Accountlist';
+import MyAccount from './MyAccount';
 
 
 function Dashboard() {
@@ -17,7 +18,12 @@ function Dashboard() {
       <h1>Dashboard</h1>
       <div class="container">
 
-        {isAuthenticated && <Accountlist />}
+        {isAuthenticated &&
+          <>
+            <Accountlist />
+            <MyAccount />
+          </>
+        }
         {!isAuthenticated && <h2> Utente non loggato</h2>}
 
       </div>
