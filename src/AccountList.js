@@ -3,31 +3,55 @@ function Accountlist() {
 
     const [amount, setAmount] = useState(0);
     const [receiverId, setReceiverId] = useState("");
+    const vuoto ={
+        
+            "ID": 0,
+            "amount": 0,
+            "receiverAccount": {
+                "ID": 0,
+                "credit": 0,
+                "email": "filini@gmail.com",
+                "first-name": "Tigio",
+                "fullName": "Tigio Filini",
+                "last-name": "Filini"
+            },
+            "senderAccount": {
+                "ID": 34,
+                "credit": 40.00,
+                "email": "veromar@gmail.com",
+                "first-name": "Omar",
+                "fullName": "Omar Ver",
+                "last-name": "Ver"
+            },
+            "sendingAT": "2024-07-05"
+        
+    }
+    
     const handleSubmit = (event) => {
         event.preventDefault();
-        const dati ={
+        const dati = {
             amount,
             receiverId
         }
-        ;
-        const stringDati=JSON.stringify(dati);
+            ;
+        const stringDati = JSON.stringify(dati);
         const id = sessionStorage.getItem("id");
-        const url = 'http://localhost:8080/payghost/api/accounts/'+id+'/transactions'; 
-        fetch( url,
+        const url = 'http://localhost:8080/payghost/api/accounts/' + id + '/transactions';
+        fetch(url,
             {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
                 body: stringDati
             })
-        .then(res => res.text())
-        .then(testo => {
-                console.log(testo);
-                alert(`id nuovo=${testo}`);
+            .then(res => res.json())
+            .then(transaction => {
+                console.log(transaction);
+                alert(`id nuovo=${transaction}`);
 
             })
-        .catch((error) => {
+            .catch((error) => {
                 console.log(error);
-              }
+            }
             );
     }
 
@@ -55,14 +79,18 @@ function Accountlist() {
         <>
 
             <form onSubmit={handleSubmit}>
-            <label>inserire importo da trasferire:
-                <input type="text" value={amount} onChange={(e) => setAmount(e.target.value)} />
-            </label>
-            <select className="form-select"  value={receiverId} onChange={(e) => setReceiverId(e.target.value)}>
-                {accounts.map((curac) => <OptionAccount ac={curac} />)}
-            </select>
-            <input type="submit" />
+                <label>inserire importo da trasferire:
+                    <input type="text" value={amount} onChange={(e) => setAmount(e.target.value)} />
+                </label>
+                <select className="form-select" value={receiverId} onChange={(e) => setReceiverId(e.target.value)}>
+                    {accounts.map((curac) => <OptionAccount ac={curac} />)}
+                </select>
+                <input type="submit" />
             </form>
+
+            <div class="alert alert-success" role="alert">
+                receiver amount :  sender amount : 
+            </div>
 
         </>
     )
